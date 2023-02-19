@@ -1,21 +1,17 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="Year" Type="InArgument(x:String)" />
-    <x:Property Name="year" Type="InArgument(x:Boolean)" />
+    <x:Property Name="intprogram" Type="InArgument(x:Int32)" />
   </x:Members>
-  <this:Main.Year>
-    <InArgument x:TypeArguments="x:String" />
-  </this:Main.Year>
-  <this:Main.year>
-    <InArgument x:TypeArguments="x:Boolean" />
-  </this:Main.year>
+  <this:Main.intprogram>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Main.intprogram>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>706,1320</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>688,826.6666666666666</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="26">
+    <scg:List x:TypeArguments="x:String" Capacity="48">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -40,12 +36,11 @@
       <x:String>GlobalVariablesNamespace</x:String>
       <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Reflection</x:String>
-      <x:String>System.ComponentModel</x:String>
       <x:String>System.Collections.ObjectModel</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="58">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="48">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -69,70 +64,41 @@
       <AssemblyReference>System.ObjectModel</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
-      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
-      <AssemblyReference>System.ComponentModel</AssemblyReference>
-      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
       <AssemblyReference>System.Console</AssemblyReference>
       <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
       <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Private.Uri</AssemblyReference>
-      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="639.3333333333334,1255.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="558.6666666666666,668" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:Int32" Name="Year" />
+      <Variable x:TypeArguments="x:String" Name="PROGRAM" />
+      <Variable x:TypeArguments="x:String" Name="Pogram" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="577.3333333333334,1144.6666666666667" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
-      <ui:InterruptibleDoWhile.Body>
-        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="540.6666666666666,974" sap2010:WorkflowViewState.IdRef="Sequence_4">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="478.6666666666667,246" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="LEAP YEAR" Title="ENTER THE YEAR:">
-            <ui:InputDialog.Result>
-              <OutArgument x:TypeArguments="x:Int32">[Year]</OutArgument>
-            </ui:InputDialog.Result>
-          </ui:InputDialog>
-          <If Condition="[Year Mod 4=0]" sap:VirtualizedContainerService.HintSize="478.6666666666667,577.3333333333334" sap2010:WorkflowViewState.IdRef="If_1">
-            <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="400,197.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;IT IS LEAP YEAR&quot;]" />
-              </Sequence>
-            </If.Then>
-            <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="400,197.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="338,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;IT IS NOT A LEAP YEAR&quot;]" />
-              </Sequence>
-            </If.Else>
-          </If>
-        </Sequence>
-      </ui:InterruptibleDoWhile.Body>
-      <ui:InterruptibleDoWhile.Condition>
-        <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="Year Mod 4&lt;&gt;0" />
-      </ui:InterruptibleDoWhile.Condition>
-    </ui:InterruptibleDoWhile>
+    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="496.6666666666667,300.6666666666667" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Select one programming languages" OptionsString="1;2;3;4" Title="PROGRAMMING LANGUAGES">
+      <ui:InputDialog.Result>
+        <OutArgument x:TypeArguments="x:Int32">[intprogram]</OutArgument>
+      </ui:InputDialog.Result>
+    </ui:InputDialog>
+    <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[intprogram]" sap:VirtualizedContainerService.HintSize="496.6666666666667,216.66666666666666" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+      <Switch.Default>
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_9" Text="[&quot;IT'S AN INVALID CHOICE&quot;]" />
+      </Switch.Default>
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" x:Key="1" AutoCloseAfter="00:00:00" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_5" Text="[&quot;YOU FAVOURITE PROGRAMMING LANGUAGE IS C&quot;]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" x:Key="2" AutoCloseAfter="00:00:00" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[&quot;YOUR FAVOURITE PROGRAMMING LANGUAGE IS C++&quot;]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" x:Key="3" AutoCloseAfter="00:00:00" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;YOUR FAVOURITE PROGRAMMING LANGUAGE IS PYTHON&quot;]" />
+      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" x:Key="4" AutoCloseAfter="00:00:00" sap:VirtualizedContainerService.HintSize="334,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_8" Text="[&quot;YOUR FAVOURITE PROGRAMMING LANGUAGE IS JAVA&quot;]" />
+    </Switch>
   </Sequence>
 </Activity>
